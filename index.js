@@ -1,7 +1,44 @@
 //References//
 const mysql = require('mysql2');
 const inquirer = require("inquirer");
-// const table = require('console.table');
+const table = require('console.table');
+// Using console.table
+console.table([
+    {
+        name: 'Jim Lahey',
+        role: 'Park Supervisor',
+        department:'Trailer Park Supervisors',
+        salary:40000,
+    },
+    {
+        name: 'Randy Bobandy',
+        role: 'Assistant Supervisor',
+        department:'Trailer Park Supervisors',
+        salary:100000,
+    },
+    {
+        name: 'Hank Hill',
+        role: 'Propane Handler',
+        department:'Propane Accessories',
+        salary:30000,
+    },
+    {
+        name: 'Chester Cheetah',
+        role: 'Park Mascot',
+        department:'Chuck E Cheese',
+        salary:20000,
+    },
+    {
+        name: 'Sam Loscoe',
+        role: 'Secretary',
+        department:'Motor Vehicles',
+        salary:50000,
+    },
+    
+    
+    
+]
+)
 
 //Trying to use the MySql but application kept freezing
 const db = mysql.createConnection(
