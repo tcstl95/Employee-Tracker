@@ -1,16 +1,16 @@
 const mysql = require('mysql2');
 const inquirer = require("inquirer");
-const table = require('console.table');
+// const table = require('console.table');
 
 
-const db = mysql.createConnection(
-    {
-        host: "localhost",
-        user: "root",
-        password:"Stlblues#1",
-        database: "employees_db",
-    },
-);
+// const db = mysql.createConnection(
+//     {
+//         host: "localhost",
+//         user: "root",
+//         password:"Stlblues#1",
+//         database: "employees_db",
+//     },
+// );
 
 
 const selectMenu =()=>{
@@ -42,12 +42,14 @@ switch(optionchosen.choice){
         viewDepartments();
         break;
     case "Add Department":
+        addDepartment();
         break;
 
 }
 });
 };
 selectMenu();
+
 const viewEmployees =(err)=>{
 db.query('SELECT id,first_name,last_name,roles_id FROM employee ')
 if (err) throw(err);
@@ -58,9 +60,10 @@ return inquirer.prompt([
         message:"Choose the following Employees",
         choices: ["Jim Lahey","Randy Bobandy","Hank Hill","Chester Cheetah" ]
     }
+    
 ])
 }
-
+// viewEmployees();
 const viewDepartments=(err)=>{
     db.query('SELECT id, name FROM department ORDER by idA ASC;')  
     if (err) throw(err);
@@ -74,6 +77,7 @@ const viewDepartments=(err)=>{
     ])
     
 }
+// viewDepartments();
 
 const viewRoles =(err)=>{
     db.query('SELECT id, title,salary FROM roles')
@@ -87,19 +91,22 @@ const viewRoles =(err)=>{
         }
     ])
 }
+// viewRoles();
 
 const addEmployee =()=>{
     let empArray =[];
     db.query('SELECT id, name * FROM department',(err,res)=>{
-     if (err) throw(err);
-     res.forEach((newEmp)=>{
-        empArray.push(`${empArray.id} ${empArray.name}`);
-     })
+    //  if (err) throw(err);
+    //  res.forEach((newEmp)=>{
+    //     empArray.push(`${newEmp.id} ${newEmp.name}`);
+    //  })
+     addEmployee();
     })
 }
+
 const addDepartment =()=>{
     let depArray=[];
-    db.query('INSERT INTO department (name) VALUES (?)',(err,res)=>{
+    db.query('INSERT INTO department (deptname) VALUES (?)',(err,res)=>{
        
         if(err) throw(err);
         res.forEach((newDep)=>{
@@ -107,3 +114,4 @@ const addDepartment =()=>{
         })
     });
 }
+// addDepartment();
