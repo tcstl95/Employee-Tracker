@@ -25,5 +25,5 @@ CREATE TABLE employee (
     -- REFERENCES roles(roleID)
     -- REFERENCES department(id)
     -- REFERENCES employee(empID)
-    FOREIGN KEY (department_id)
+    -- FOREIGN KEY (departments_id)
 );

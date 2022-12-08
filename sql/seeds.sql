@@ -3,7 +3,7 @@ VALUES ("Homeland Security", 1),
         ("Motor Vehicles", 2),
         ("Trailer Park Supervisors", 3),
         ("Propane Accessories", 4),
-        ("Chuck E Cheese",5);
+        ("Chuck E Cheese", 5);
 
 INSERT INTO employee (empID,first_name, last_name)
     VALUES(1, "Jim", "Lahey"),

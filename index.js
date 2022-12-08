@@ -63,7 +63,7 @@ return inquirer.prompt([
     
 ])
 }
-// viewEmployees();
+
 const viewDepartments=(err)=>{
     db.query('SELECT id, name FROM department ORDER by idA ASC;')  
     if (err) throw(err);
@@ -74,44 +74,48 @@ const viewDepartments=(err)=>{
             message:"Choose the following Employees",
             choices: ["Jim Lahey","Randy Bobandy","Hank Hill","Chester Cheetah" ]
         }
-    ])
+
+
+    ]);
     
 }
-// viewDepartments();
+
 
 const viewRoles =(err)=>{
     db.query('SELECT id, title,salary FROM roles')
     if(err) throw(err);
     return inquirer.prompt([
-        {
+          {
             type:"list",
             name:"Employee Choice",
             message:"Choose the following Employees",
             choices: ["Jim Lahey","Randy Bobandy","Hank Hill","Chester Cheetah" ]
         }
     ])
+    
 }
-// viewRoles();
+
 
 const addEmployee =()=>{
     let empArray =[];
     db.query('SELECT id, name * FROM department',(err,res)=>{
-    //  if (err) throw(err);
-    //  res.forEach((newEmp)=>{
-    //     empArray.push(`${newEmp.id} ${newEmp.name}`);
-    //  })
-     addEmployee();
+     if (err) throw(err);
+     res.forEach((newEmp)=>{
+        empArray.push(`${newEmp.id} ${newEmp.name}`);
+     })
+     
     })
 }
 
 const addDepartment =()=>{
     let depArray=[];
+
     db.query('INSERT INTO department (deptname) VALUES (?)',(err,res)=>{
        
         if(err) throw(err);
         res.forEach((newDep)=>{
             depArray.push(`${newDep.name}`);
+            
         })
     });
 }
-// addDepartment();
