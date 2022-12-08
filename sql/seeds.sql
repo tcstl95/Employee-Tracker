@@ -13,6 +13,7 @@ INSERT INTO employee (empID,first_name, last_name)
         (3, "Hank", "Hill"),
         (4,"Chester", "Cheetah"),
         (5,"Sam", "Loscoe");
+    /* My values for roles*/
 INSERT INTO roles (roleID,title,salary)
     VALUES(1, "Park Supervisor", 40000),
         (2, "President", 100000),
