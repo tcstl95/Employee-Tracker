@@ -58,7 +58,7 @@ const selectMenu =()=>{
             type: "list",
             name:"choice",
             message: "What would you like to do?",
-            choices:["View all Employees", "Add an Employee","Update Employee Role", "View all Roles", "Add Role", "View all Departments", "Add Department"],
+            choices:["View all Employees", "Add an Employee","Update Employee Role", "View All Roles", "Add Role", "View all Departments", "Add Department","Back"]
  },
 ])
 // This function directs to the specific menu for one of the choices in the main menu
@@ -83,13 +83,16 @@ switch(optionchosen.choice){
     case "Add Department":
         addDepartment();
         break;
-
+    case "Back":
+        break;
+        default:
+        break;
 }
 });
 };
 selectMenu();
 // Prompt to view employees;
-const viewEmployees =(err)=>{
+const viewEmployees =()=>{
 // db.query('SELECT id,first_name,last_name,roles_id FROM employee ')
 // if (err) throw(err);
 return inquirer.prompt([
@@ -97,13 +100,13 @@ return inquirer.prompt([
         type:"list",
         name:"Employee Choice",
         message:"Choose the following Employees",
-        choices: ["Jim Lahey","Randy Bobandy","Hank Hill","Chester Cheetah" ]
+        choices: ["Jim Lahey","Randy Bobandy","Hank Hill","Chester Cheetah", "Sam Loscoe", "Back" ]
     }
     
 ])
 }
 // Prompt to view Departments
-const viewDepartments=(err)=>{
+const viewDepartments=()=>{
     // db.query('SELECT id, name FROM department ORDER by idA ASC;')  
     // if (err) throw(err);
     return inquirer.prompt([
@@ -111,16 +114,16 @@ const viewDepartments=(err)=>{
             type:"list",
             name:"Department Choice",
             message:"Choose the following Departments",
-            choices: ["Homeland Security","Motor Vehicles","Trailer Park Supervisors","Propane Accessories","Chuck E Cheese" ]
+            choices: ["Homeland Security","Motor Vehicles","Trailer Park Supervisors","Propane Accessories","Chuck E Cheese", "Back"]
         }
 
 
-    ]);
+    ])
     
 }
 
 //Prompt to view roles
-const viewRoles =(err)=>{
+const viewRoles =()=>{
     // db.query('SELECT id, title,salary FROM roles')
     // if(err) throw(err);
     return inquirer.prompt([
@@ -128,7 +131,7 @@ const viewRoles =(err)=>{
             type:"list",
             name:"Employee Choice",
             message:"Choose the following Employees",
-            choices: ["Park Supervisor","President","Park Mascot","Propane Handler","Secretary" ]
+            choices: ["Park Supervisor","President","Park Mascot","Propane Handler","Secretary","Back"]
         }
     ])
     

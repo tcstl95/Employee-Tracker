@@ -1,5 +1,5 @@
 
-//* My values for department*//
+/* My values for department*/
 INSERT INTO department (dept_name, deptID)
 VALUES ("Homeland Security", 1),
         ("Motor Vehicles", 2),
